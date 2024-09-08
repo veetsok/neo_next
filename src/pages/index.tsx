@@ -1,3 +1,13 @@
+import Navbar from "@/components/Navbar";
+import ProductList from "@/components/ProductList";
+
 export default function Home() {
-  return <main className="grid min-h-screen grid-rows-[1fr,auto]"></main>;
+  return (
+    <div className="px-3 pt-2">
+      <Navbar />
+      <main className="grid min-h-screen grid-rows-[1fr,auto]">
+        <ProductList/>
+      </main>
+    </div>
+  );
 }

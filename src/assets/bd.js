@@ -1,0 +1,45 @@
+export const dataHeadphones = [
+  {
+    image: "Apple_BYZ _S8521.png",
+    title: "Apple BYZ S852I",
+    price: 2927,
+    old: 3527,
+    rate: 4.7,
+    variant: 1,
+  },
+  {
+    image: "Apple_EarPods.png",
+    title: "Apple EarPods",
+    price: 2327,
+    rate: 4.5,
+    variant: 1,
+  },
+  {
+    image: "Apple_EarPods_box.png",
+    title: "Apple EarPods Box",
+    price: 2327,
+    rate: 4.5,
+    variant: 1,
+  },
+  {
+    image: "Apple_AirPods.png",
+    title: "Apple AirPods",
+    price: 9527,
+    rate: 4.7,
+    variant: 2,
+  },
+  {
+    image: "GERLAX_GH-04.png",
+    title: "GERLAX GH-04",
+    price: 6527,
+    rate: 4.5,
+    variant: 2,
+  },
+  {
+    image: "BOROFONE_BO4.png",
+    title: "BOROFONE BO4",
+    price: 7527,
+    rate: 4.7,
+    variant: 2,
+  },
+];

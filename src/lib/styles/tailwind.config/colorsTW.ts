@@ -1,13 +1,12 @@
 const colorsTW = {
   "main-background": "var(--main-background)",
+  "gray-background": "rgb(var(--gray-background) / <alpha-value>)",
+  "white-background": "rgb(var(--white-background) / <alpha-value>)",
+  "dark-background": "rgb(var(--dark-background) / <alpha-value>)",
 
+  "accent-orange": "rgb(var(--accent-orange) / <alpha-value>)",
+  "accent-gray": "rgb(var(--accent-gray) / <alpha-value>)",
   "accent-blue": "rgb(var(--accent-blue) / <alpha-value>)",
-
-  "dark-primary": "rgb(var(--dark-primary) / <alpha-value>)",
-
-  "light-primary": "rgb(var(--light-primary) / <alpha-value>)",
-
-  "light-border": "rgb(var(--light-border) / <alpha-value>)",
 };
 
 export default colorsTW;

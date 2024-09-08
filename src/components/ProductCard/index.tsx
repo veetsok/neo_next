@@ -10,9 +10,9 @@ import StarIcon from "@/assets/icons/star.svg?react";
 interface ProductCardProps extends Partial<THeadphones> {}
 
 const ProductCard: React.FC<ProductCardProps> = (props) => {
-  const { image, title, price, old, rate, variant } = props;
+  const { image, title, price, old, rate } = props;
   return (
-    <div className="flex flex-col bg-white-background max-w-[350px] max-h-[407px] py-[32px] px-[21px] rounded-[30px] font-semibold">
+    <div className="flex flex-col bg-white-background max-w-[382px] max-h-[428px] py-[32px] px-[21px] rounded-[30px] font-semibold w-full h-full">
       {image && title && (
         <Image
           src={`/images/${image}`}

@@ -21,7 +21,6 @@ const ProductList: React.FC<ProductListProps> = () => {
               price={product.price}
               old={product.old}
               rate={product.rate}
-              variant={product.variant}
             />
           ))}
       </div>

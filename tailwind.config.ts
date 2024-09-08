@@ -10,6 +10,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      container: {
+        center: true,
+        screens: {
+          xl: "1200px",
+        },
+      },
       colors: colorsTW,
       fontSize: {
         h1: "25px",

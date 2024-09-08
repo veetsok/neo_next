@@ -22,6 +22,28 @@ export const dataHeadphones = [
     variant: 1,
   },
   {
+    image: "Apple_BYZ _S8521.png",
+    title: "Apple BYZ S852I",
+    price: 2927,
+    old: 3527,
+    rate: 4.7,
+    variant: 1,
+  },
+  {
+    image: "Apple_EarPods.png",
+    title: "Apple EarPods",
+    price: 2327,
+    rate: 4.5,
+    variant: 1,
+  },
+  {
+    image: "Apple_EarPods_box.png",
+    title: "Apple EarPods Box",
+    price: 2327,
+    rate: 4.5,
+    variant: 1,
+  },
+  {
     image: "Apple_AirPods.png",
     title: "Apple AirPods",
     price: 9527,

@@ -1,20 +1,17 @@
 import Link from "next/link";
 import React from "react";
-import TextAtom from "../ui/Atoms/Text.Atom";
-import TextAtomEnum from "../ui/Atoms/Text.Atom/enum";
 import ImageAtom from "../ui/Atoms/Image.Atom";
 import WishlistIcon from "@/assets/icons/wishlist.svg?react";
 import CartIcon from "@/assets/icons/cart.svg?react";
 import ImageAtomEnum from "../ui/Atoms/Image.Atom/enum";
+import Logo from "../Logo";
 
 interface NavbarProps {}
 
 const Navbar: React.FC<NavbarProps> = () => {
   return (
     <header className="flex justify-between items-center">
-      <Link href="/">
-        <TextAtom type={TextAtomEnum.enum_h4}>QPICK</TextAtom>
-      </Link>
+      <Logo />
       <div className="flex items-center gap-3">
         <Link href="#">
           <ImageAtom

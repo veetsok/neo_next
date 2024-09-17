@@ -2,7 +2,7 @@ import React from "react";
 import TextAtom from "../ui/Atoms/Text.Atom";
 import TextAtomEnum from "../ui/Atoms/Text.Atom/enum";
 import { dataHeadphones } from "@/assets/bd";
-import ProductCard from "../ProductCard";
+import ProductCard from "../items/product-card";
 
 interface ProductListProps {}
 

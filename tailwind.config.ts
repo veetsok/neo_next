@@ -25,6 +25,9 @@ const config: Config = {
         h5: "12px",
         h6: "10px",
       },
+      boxShadow: {
+        "card-box": "0 0 20px rgba(0, 0, 0, .1)",
+      },
     },
   },
   plugins: [],

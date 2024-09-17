@@ -14,9 +14,10 @@
     --white-background: 255 255 255;
     --dark-background: 0 0 0;
 
+    --accent-black: 16 16 16;
+    --accent-blue: 28 28 39;
     --accent-orange: 255 165 66;
     --accent-gray: 131 131 131;
-    --accent-blue: 28 28 39;
   }
 }
 

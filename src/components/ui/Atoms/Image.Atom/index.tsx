@@ -9,7 +9,7 @@ interface ImageAtomType extends Partial<ICommonComponentProps> {
 const ImageAtom: React.FC<ImageAtomType> = (props) => {
   const { icon, type, isLoading, onClick, className } = props;
 
-  // if (isLoading) return <SkeletonAtom />;
+  if (isLoading) return <>Loading...</>;
 
   switch (type) {
     case ImageAtomEnum.enum_defaultSvg: {

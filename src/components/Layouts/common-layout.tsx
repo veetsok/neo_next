@@ -14,3 +14,6 @@ export const MainLayout: React.FC<LayoutProps> = React.memo(({ children }) => {
     </div>
   );
 });
+
+// Добавляем свойство displayName
+MainLayout.displayName = "MainLayout";

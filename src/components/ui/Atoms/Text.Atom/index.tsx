@@ -10,7 +10,7 @@ interface TextAtomProps extends Partial<ICommonComponentProps> {
 const TextAtom: React.FC<TextAtomProps> = (props) => {
   const { children, type, className, isLoading } = props;
 
-  // if (isLoading) return <SkeletonAtom />;
+  if (isLoading) return <>Loading...</>;
 
   switch (type) {
     case TextAtomEnum.enum_h1:

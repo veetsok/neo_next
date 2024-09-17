@@ -33,7 +33,7 @@ const Footer: React.FC<FooterProps> = () => {
           <ImageAtom
             type={ImageAtomEnum.enum_defaultSvg}
             icon={<WorldIcon />}
-            className="w-[16.67px] h-[16.67px] "
+            className="w-[16.67px] h-[16.67px]"
           />
         </div>
       </div>

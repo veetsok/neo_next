@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { THeadphones } from "@/lib/types";
 import Image from "next/image";
 import TextAtom from "../ui/Atoms/Text.Atom";
@@ -6,11 +6,32 @@ import TextAtomEnum from "../ui/Atoms/Text.Atom/enum";
 import ImageAtom from "../ui/Atoms/Image.Atom";
 import ImageAtomEnum from "../ui/Atoms/Image.Atom/enum";
 import StarIcon from "@/assets/icons/star.svg?react";
+import useCartStore from "@/lib/store/localstorage/useCartStore";
+import ButtonAtom from "../ui/Atoms/Button.Atom";
+import ButtonAtomEnum from "../ui/Atoms/Button.Atom/enum";
 
-interface ProductCardProps extends Partial<THeadphones> {}
+interface ProductCardProps extends Partial<THeadphones> {
+  id: number;
+}
 
 const ProductCard: React.FC<ProductCardProps> = (props) => {
-  const { image, title, price, old, rate } = props;
+  const { image, title, price, old, rate, id } = props;
+
+  const { addItem } = useCartStore();
+
+  const handleAddToCart = useCallback(() => {
+    const newItem = {
+      id: id,
+      title: title,
+      price: price,
+      image: image,
+      quantity: 1,
+      sum: 0,
+      isSelected: false,
+    };
+    addItem(newItem);
+  }, []);
+
   return (
     <div className="flex flex-col bg-white-background max-w-[382px] max-h-[428px] py-[32px] px-[21px] rounded-[30px] font-semibold w-full h-full">
       {image && title && (
@@ -45,7 +66,12 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
           />
           <TextAtom type={TextAtomEnum.enum_h4}>{rate}</TextAtom>
         </div>
-        <TextAtom type={TextAtomEnum.enum_h4}>Купить</TextAtom>
+        <ButtonAtom
+          type={ButtonAtomEnum.enum_defaultButton}
+          onClick={handleAddToCart}
+        >
+          <TextAtom type={TextAtomEnum.enum_h4}>Купить</TextAtom>
+        </ButtonAtom>
       </div>
     </div>
   );

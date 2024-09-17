@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { ActionsCartStore, CartStore } from "./type";
+import { ActionsCartStore, CartStore } from "@/lib/types";
 
 const useCartStore = create<CartStore & ActionsCartStore>()(
   persist(
@@ -131,7 +131,6 @@ const useCartStore = create<CartStore & ActionsCartStore>()(
           .getState()
           .items.filter((item) => item.isSelected);
         const total = useCartStore.getState().total;
-        // Here you can implement the logic to create an order with selectedItems and total
         console.log("Creating order with selected items:", selectedItems);
         console.log("Total:", total);
       },

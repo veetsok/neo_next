@@ -9,13 +9,19 @@ import Image from "next/image";
 import useCartStore from "@/lib/store/localstorage/useCartStore";
 import IncreaseIcon from "@/assets/icons/increase.svg?react";
 import DecreaseIcon from "@/assets/icons/decrease.svg?react";
+import CheckBoxAtom, { CheckboxAtomEnum } from "../ui/Atoms/CheckBox.Atom";
 
 interface ProductCartProps extends Partial<CartStoreItems> {}
 
 const ProductCart: React.FC<ProductCartProps> = (props) => {
-  const { image, title, price, id, quantity, sum } = props;
+  const { image, title, price, id, quantity, sum, isSelected } = props;
 
-  const { removeItem, increaseQuantity, decreaseQuantity } = useCartStore();
+  const { removeItem, increaseQuantity, decreaseQuantity, selectedItem } =
+    useCartStore();
+
+  const handleOnchange = useCallback(() => {
+    id && selectedItem(id);
+  }, [id, selectedItem]);
 
   const handleRemoveItem = useCallback(() => {
     if (id !== undefined) {
@@ -43,6 +49,13 @@ const ProductCart: React.FC<ProductCartProps> = (props) => {
      pt-[18px] pb-[15px] pr-[28px] pl-[18px]
      relative w-full max-w-[633px]"
     >
+      <CheckBoxAtom
+        type={CheckboxAtomEnum.CHECKBOX}
+        checked={isSelected}
+        className="my-auto"
+        onChange={handleOnchange}
+      />
+
       <div className="flex items-center gap-[23.44px]">
         <div className="flex flex-col gap-[19px]">
           {image && title && (

@@ -1,5 +1,6 @@
 export const dataHeadphones = [
   {
+    id: 1,
     image: "Apple_BYZ _S8521.png",
     title: "Apple BYZ S852I",
     price: 2927,
@@ -8,6 +9,7 @@ export const dataHeadphones = [
     variant: 1,
   },
   {
+    id: 2,
     image: "Apple_EarPods.png",
     title: "Apple EarPods",
     price: 2327,
@@ -15,6 +17,7 @@ export const dataHeadphones = [
     variant: 1,
   },
   {
+    id: 3,
     image: "Apple_EarPods_box.png",
     title: "Apple EarPods Box",
     price: 2327,
@@ -22,6 +25,7 @@ export const dataHeadphones = [
     variant: 1,
   },
   {
+    id: 4,
     image: "Apple_BYZ _S8521.png",
     title: "Apple BYZ S852I",
     price: 2927,
@@ -30,6 +34,7 @@ export const dataHeadphones = [
     variant: 1,
   },
   {
+    id: 5,
     image: "Apple_EarPods.png",
     title: "Apple EarPods",
     price: 2327,
@@ -37,6 +42,7 @@ export const dataHeadphones = [
     variant: 1,
   },
   {
+    id: 6,
     image: "Apple_EarPods_box.png",
     title: "Apple EarPods Box",
     price: 2327,
@@ -44,6 +50,7 @@ export const dataHeadphones = [
     variant: 1,
   },
   {
+    id: 7,
     image: "Apple_AirPods.png",
     title: "Apple AirPods",
     price: 9527,
@@ -51,6 +58,7 @@ export const dataHeadphones = [
     variant: 2,
   },
   {
+    id: 8,
     image: "GERLAX_GH-04.png",
     title: "GERLAX GH-04",
     price: 6527,
@@ -58,6 +66,7 @@ export const dataHeadphones = [
     variant: 2,
   },
   {
+    id: 9,
     image: "BOROFONE_BO4.png",
     title: "BOROFONE BO4",
     price: 7527,

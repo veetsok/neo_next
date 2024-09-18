@@ -11,7 +11,7 @@ interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = () => {
   return (
-    <div className="p-4 rounded-[30px_30px_0_0] bg-white-background flex">
+    <div className="mt-5 p-4 rounded-[30px_30px_0_0] bg-white-background flex">
       <Logo />
       <div className="">
         <Link href="#">

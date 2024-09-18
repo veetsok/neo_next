@@ -8,6 +8,8 @@ const colorsTW = {
   "accent-blue": "rgb(var(--accent-blue) / <alpha-value>)",
   "accent-orange": "rgb(var(--accent-orange) / <alpha-value>)",
   "accent-gray": "rgb(var(--accent-gray) / <alpha-value>)",
+
+  "light-gray": "rgb(var(--light-gray) / <alpha-value>)",
 };
 
 export default colorsTW;

@@ -5,10 +5,15 @@ import WishlistIcon from "@/assets/icons/wishlist.svg?react";
 import CartIcon from "@/assets/icons/cart.svg?react";
 import ImageAtomEnum from "../ui/Atoms/Image.Atom/enum";
 import Logo from "../Logo";
+import useCartStore from "@/lib/store/localstorage/useCartStore";
+import TextAtom from "../ui/Atoms/Text.Atom";
+import TextAtomEnum from "../ui/Atoms/Text.Atom/enum";
 
 interface NavbarProps {}
 
 const Navbar: React.FC<NavbarProps> = () => {
+  const { items } = useCartStore();
+
   return (
     <header className="flex justify-between items-center">
       <Logo />
@@ -20,12 +25,18 @@ const Navbar: React.FC<NavbarProps> = () => {
             className="w-[22px] h-5 fill-accent-gray"
           />
         </Link>
-        <Link href="/cart">
+        <Link href="/cart" className="relative">
           <ImageAtom
             type={ImageAtomEnum.enum_defaultSvg}
             icon={<CartIcon />}
             className="w-[22px] h-5 fill-accent-gray"
           />
+          <TextAtom
+            className="absolute top-[-4px] right-[-4px] px-1 rounded-full bg-accent-orange text-white"
+            type={TextAtomEnum.enum_h6}
+          >
+            {items.length}
+          </TextAtom>
         </Link>
       </div>
     </header>

@@ -14,8 +14,8 @@ const Cart: React.FC<CartProps> = () => {
   return (
     <div className="flex flex-col gap-[13px]">
       <TextAtom type={TextAtomEnum.enum_h2}>Корзина</TextAtom>
-      <div className="flex justify-between">
-        <div className="flex flex-col gap-5 overflow-y-auto">
+      <div className="flex">
+        <div className="flex flex-col gap-5 overflow-y-auto w-full max-h-[694px]">
           {items?.map((e, index: number) => (
             <ProductCart key={index} {...e} />
           ))}

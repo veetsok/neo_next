@@ -43,7 +43,7 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
           className="w-[219.61px] h-[237.07px] my-0 mx-auto"
         />
       )}
-      <div className="flex justify-between">
+      <div className="flex justify-between h-[45px]">
         <TextAtom type={TextAtomEnum.enum_h4}>{title}</TextAtom>
         <div className="flex flex-col text-accent-orange">
           <TextAtom type={TextAtomEnum.enum_h4}>{price} ₽</TextAtom>

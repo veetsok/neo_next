@@ -23,7 +23,7 @@ const Cart: React.FC<CartProps> = () => {
               <ProductCart key={index} {...e} />
             ))}
           </div>
-          <div className="flex flex-col bg-white-background rounded-[30px] w-full max-w-[350px] shadow-card-box font-semibold">
+          <div className="flex flex-col bg-white-background rounded-[30px] w-full max-w-[350px] shadow-card-box font-semibold max-h-[114px]">
             <div className="flex justify-between pt-[21px] pb-[15px] px-[17px] uppercase">
               <TextAtom type={TextAtomEnum.enum_h4}>ИТОГО</TextAtom>
               <TextAtom type={TextAtomEnum.enum_h4}>₽ {total}</TextAtom>

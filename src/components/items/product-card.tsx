@@ -15,22 +15,26 @@ interface ProductCardProps extends Partial<THeadphones> {
 }
 
 const ProductCard: React.FC<ProductCardProps> = (props) => {
-  const { image, title, price, old, rate, id } = props;
+  const { id, title, price, image, old, rate, variant } = props;
 
   const { addItem } = useCartStore();
 
   const handleAddToCart = useCallback(() => {
     const newItem = {
       id: id,
-      title: title,
-      price: price,
-      image: image,
+      title: title ?? "",
+      price: price ?? 0,
+      image: image ?? "",
+      old: old ?? 0,
+      rate: rate ?? 0,
+      variant: variant ?? 1,
       quantity: 1,
-      sum: 0,
+      sum: price ? price * 1 : 0,
       isSelected: false,
     };
+
     addItem(newItem);
-  }, []);
+  }, [addItem, id, title, price, image, old, rate, variant]);
 
   return (
     <div

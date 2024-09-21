@@ -45,7 +45,7 @@ const ProductCart: React.FC<ProductCartProps> = (props) => {
 
   return (
     <div
-      className="flex flex-col bg-white-background rounded-[30px]
+      className="flex bg-white-background rounded-[30px] gap-5
      pt-[18px] pb-[15px] pr-[28px] pl-[18px]
      relative w-full max-w-[633px]"
     >
@@ -57,7 +57,7 @@ const ProductCart: React.FC<ProductCartProps> = (props) => {
       />
 
       <div className="flex items-center gap-[23.44px]">
-        <div className="flex flex-col gap-[19px]">
+        <div className="flex flex-col gap-[19px] items-center">
           {image && title && (
             <Image
               src={`/images/${image}`}

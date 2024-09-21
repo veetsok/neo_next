@@ -32,11 +32,11 @@ const Footer: React.FC<FooterProps> = () => {
       </div>
 
       <div className="flex flex-col gap-[30px]">
-        <Link href="#" className="p-[10px]">
+        <Link href="#">
           <TextAtom type={TextAtomEnum.enum_h3}>Условия сервиса</TextAtom>
         </Link>
 
-        <div className="flex items-center gap-[15px] p-[10px]">
+        <div className="flex items-center gap-[15px]">
           <ImageAtom
             type={ImageAtomEnum.enum_defaultSvg}
             icon={<WorldIcon />}

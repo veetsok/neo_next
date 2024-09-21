@@ -34,7 +34,7 @@ const SelectionPanel: React.FC<SelectionPanelProps> = () => {
   }, [items]);
 
   return (
-    <div className="flex justify-between items-start rounded-lg border border-borderColor text-textColor bg-bgGen py-[30px] px-[35px]">
+    <div className="flex justify-between items-start rounded-lg border border-borderColor text-textColor bg-bgGen py-[30px]">
       <div onClick={handleSelectAll} className="flex gap-4 cursor-pointer">
         <CheckBoxAtom
           type={CheckboxAtomEnum.CHECKBOX}

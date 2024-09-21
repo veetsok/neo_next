@@ -13,6 +13,7 @@ interface NavbarProps {}
 
 const Navbar: React.FC<NavbarProps> = () => {
   const { items } = useCartStore();
+  const itemsTotal = items.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <header className="flex justify-between items-center py-[15px]">
@@ -31,12 +32,14 @@ const Navbar: React.FC<NavbarProps> = () => {
             icon={<CartIcon />}
             className="w-[22px] h-5 fill-accent-gray"
           />
-          <TextAtom
-            className="absolute top-[-4px] right-[-4px] px-1 rounded-full bg-accent-orange text-white max-w-6"
-            type={TextAtomEnum.enum_h6}
-          >
-            {items.length}
-          </TextAtom>
+          {itemsTotal > 0 && (
+            <TextAtom
+              className="absolute top-[-4px] right-[-4px] px-1 rounded-full bg-accent-orange text-white max-w-6"
+              type={TextAtomEnum.enum_h6}
+            >
+              {itemsTotal}
+            </TextAtom>
+          )}
         </Link>
       </div>
     </header>

@@ -29,14 +29,12 @@ const ProductCart: React.FC<ProductCartProps> = (props) => {
     }
   }, [id, removeItem]);
 
-  // Обработчик для увеличения количества
   const handleIncreaseQuantity = useCallback(() => {
     if (id !== undefined) {
       increaseQuantity(id);
     }
   }, [id, increaseQuantity]);
 
-  // Обработчик для уменьшения количества
   const handleDecreaseQuantity = useCallback(() => {
     if (id !== undefined) {
       decreaseQuantity(id);

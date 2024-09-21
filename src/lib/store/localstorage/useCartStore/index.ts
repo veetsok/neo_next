@@ -16,14 +16,14 @@ const useCartStore = create<CartStore & ActionsCartStore>()(
             const updatedItems = [...state.items];
             updatedItems[existItemIndex].quantity += newItem.quantity;
             updatedItems[existItemIndex].sum +=
-              newItem.price * newItem.quantity; // Обновление суммы одного отдельного товара
+              newItem.price * newItem.quantity;
             return {
               items: updatedItems,
             };
           } else {
-            const sum = newItem.price * newItem.quantity; // Вычисление суммы одного отдельного товара
+            const sum = newItem.price * newItem.quantity;
             return {
-              items: [...state.items, { ...newItem, sum }], // Добавление свойства sum
+              items: [...state.items, { ...newItem, sum }],
             };
           }
         }),
@@ -38,11 +38,10 @@ const useCartStore = create<CartStore & ActionsCartStore>()(
         }),
       updateItemQuantity: (id, quantity) =>
         set((state) => {
-          const updatedItems = state.items.map(
-            (item) =>
-              item.id === id
-                ? { ...item, quantity, sum: item.price * quantity }
-                : item // Обновление суммы при изменении количества
+          const updatedItems = state.items.map((item) =>
+            item.id === id
+              ? { ...item, quantity, sum: item.price * quantity }
+              : item
           );
           return {
             items: updatedItems,
@@ -66,7 +65,7 @@ const useCartStore = create<CartStore & ActionsCartStore>()(
                   ...item,
                   quantity: item.quantity + 1,
                   sum: item.sum + item.price,
-                } // Увеличение суммы на цену одного товара
+                }
               : item
           );
           return {
@@ -81,7 +80,7 @@ const useCartStore = create<CartStore & ActionsCartStore>()(
                   ...item,
                   quantity: item.quantity - 1,
                   sum: item.sum - item.price,
-                } // Уменьшение суммы на цену одного товара
+                }
               : item
           );
           return {

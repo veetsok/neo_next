@@ -11,7 +11,7 @@ import React from "react";
 interface CartProps {}
 
 const Cart: React.FC<CartProps> = () => {
-  const { items, total } = useCartStore();
+  const { items, total, createOrder } = useCartStore();
 
   return (
     <div className="flex flex-col gap-[13px]">

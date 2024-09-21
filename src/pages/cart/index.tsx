@@ -1,3 +1,4 @@
+import React, { useCallback } from "react";
 import ProductCart from "@/components/items/product-cart";
 import ButtonAtom from "@/components/ui/Atoms/Button.Atom";
 import ButtonAtomEnum from "@/components/ui/Atoms/Button.Atom/enum";
@@ -6,12 +7,15 @@ import TextAtomEnum from "@/components/ui/Atoms/Text.Atom/enum";
 import SelectionPanelCell from "@/components/ui/Cells/SelectionPanel.Cell";
 import useCartStore from "@/lib/store/localstorage/useCartStore";
 import Link from "next/link";
-import React from "react";
 
 interface CartProps {}
 
 const Cart: React.FC<CartProps> = () => {
   const { items, total, createOrder } = useCartStore();
+
+  const handleCreateOrder = useCallback(() => {
+    createOrder();
+  }, [createOrder]);
 
   return (
     <div className="flex flex-col gap-[13px]">
@@ -32,6 +36,7 @@ const Cart: React.FC<CartProps> = () => {
               </div>
               <ButtonAtom
                 type={ButtonAtomEnum.enum_defaultButton}
+                onClick={handleCreateOrder}
                 className="py-5 px-[13px] bg-accent-black text-white-background rounded-[20px]"
               >
                 <TextAtom type={TextAtomEnum.enum_h3}>

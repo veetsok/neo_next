@@ -14,48 +14,58 @@ interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = () => {
   return (
-    <div className="mt-5 p-4 rounded-[30px_30px_0_0] bg-white-background flex">
+    <div
+      className="mt-5 p-[29px] flex
+    rounded-[30px_30px_0_0] bg-white-background justify-between"
+    >
       <Logo />
-      <div className="">
-        <Link href="#">
-          <TextAtom type={TextAtomEnum.enum_h3}>Избранное</TextAtom>
-        </Link>
-        <Link href="#">
-          <TextAtom type={TextAtomEnum.enum_h3}>Корзина</TextAtom>
-        </Link>
-        <Link href="#">
-          <TextAtom type={TextAtomEnum.enum_h3}>Контакты</TextAtom>
-        </Link>
-      </div>
-      <div className="">
-        <Link href="#">
-          <TextAtom type={TextAtomEnum.enum_h3}>Условия сервиса</TextAtom>
-        </Link>
+      <div className="flex">
+        <div className="flex flex-col">
+          <Link href="#">
+            <TextAtom type={TextAtomEnum.enum_h3}>Избранное</TextAtom>
+          </Link>
+          <Link href="#">
+            <TextAtom type={TextAtomEnum.enum_h3}>Корзина</TextAtom>
+          </Link>
+          <Link href="#">
+            <TextAtom type={TextAtomEnum.enum_h3}>Контакты</TextAtom>
+          </Link>
+        </div>
 
-        <div className="flex">
-          <ImageAtom
-            type={ImageAtomEnum.enum_defaultSvg}
-            icon={<WorldIcon />}
-            className="w-[16.67px] h-[16.67px]"
-          />
+        <div className="">
+          <Link href="#">
+            <TextAtom type={TextAtomEnum.enum_h3}>Условия сервиса</TextAtom>
+          </Link>
+
+          <div className="flex items-center gap-[15px]">
+            <ImageAtom
+              type={ImageAtomEnum.enum_defaultSvg}
+              icon={<WorldIcon />}
+              className="w-[16.67px] h-[16.67px]"
+            />
+            <TextAtom type={TextAtomEnum.enum_h3}>Каз</TextAtom>
+            <TextAtom type={TextAtomEnum.enum_h3}>Рус</TextAtom>
+            <TextAtom type={TextAtomEnum.enum_h3}>Eng</TextAtom>
+          </div>
         </div>
-        <div className="flex items-center gap-[17.9px]">
-          <ImageAtom
-            type={ImageAtomEnum.enum_defaultSvg}
-            icon={<VkIcon />}
-            className="w-[30.1px] h-[30.1px] fill-accent-black hover:fill-vk-icon cursor-pointer"
-          />
-          <ImageAtom
-            type={ImageAtomEnum.enum_defaultSvg}
-            icon={<TelegramIcon />}
-            className="w-[30.1px] h-[30.1px] fill-accent-black hover:fill-telegram-icon cursor-pointer"
-          />
-          <ImageAtom
-            type={ImageAtomEnum.enum_defaultSvg}
-            icon={<WhatsappIcon />}
-            className="w-[30.1px] h-[30.1px] fill-accent-black hover:fill-whatsapp-icon cursor-pointer"
-          />
-        </div>
+      </div>
+
+      <div className="flex items-center gap-[17.9px]">
+        <ImageAtom
+          type={ImageAtomEnum.enum_defaultSvg}
+          icon={<VkIcon />}
+          className="w-[30.1px] h-[30.1px] fill-accent-black hover:fill-vk-icon cursor-pointer"
+        />
+        <ImageAtom
+          type={ImageAtomEnum.enum_defaultSvg}
+          icon={<TelegramIcon />}
+          className="w-[30.1px] h-[30.1px] fill-accent-black hover:fill-telegram-icon cursor-pointer"
+        />
+        <ImageAtom
+          type={ImageAtomEnum.enum_defaultSvg}
+          icon={<WhatsappIcon />}
+          className="w-[30.1px] h-[30.1px] fill-accent-black hover:fill-whatsapp-icon cursor-pointer"
+        />
       </div>
     </div>
   );

@@ -72,6 +72,7 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
         <ButtonAtom
           type={ButtonAtomEnum.enum_defaultButton}
           onClick={handleAddToCart}
+          className="hover:text-accent-orange"
         >
           <TextAtom type={TextAtomEnum.enum_h4}>Купить</TextAtom>
         </ButtonAtom>

@@ -34,7 +34,7 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
 
   return (
     <div
-      className="flex flex-col bg-white-background max-w-[382px] max-h-[428px] py-[32px] px-[21px] rounded-[30px]
+      className="flex flex-col bg-white-background max-w-[382px] max-h-[428px] py-[32px] px-[21px] rounded-[30px] transition-all duration-300 hover:scale-[1.05]
      font-semibold w-full h-full justify-between shadow-card-box"
     >
       {image && title && (

@@ -15,9 +15,9 @@ const Navbar: React.FC<NavbarProps> = () => {
   const { items } = useCartStore();
 
   return (
-    <header className="flex justify-between items-center">
+    <header className="flex justify-between items-center py-[15px]">
       <Logo />
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-9">
         <Link href="#">
           <ImageAtom
             type={ImageAtomEnum.enum_defaultSvg}
@@ -32,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = () => {
             className="w-[22px] h-5 fill-accent-gray"
           />
           <TextAtom
-            className="absolute top-[-4px] right-[-4px] px-1 rounded-full bg-accent-orange text-white"
+            className="absolute top-[-4px] right-[-4px] px-1 rounded-full bg-accent-orange text-white max-w-6"
             type={TextAtomEnum.enum_h6}
           >
             {items.length}

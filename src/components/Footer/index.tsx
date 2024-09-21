@@ -15,38 +15,36 @@ interface FooterProps {}
 const Footer: React.FC<FooterProps> = () => {
   return (
     <div
-      className="mt-5 p-[29px] flex
-    rounded-[30px_30px_0_0] bg-white-background justify-between"
+      className="mt-5 p-[29px] flex justify-between items-baseline
+    rounded-[30px_30px_0_0] bg-white-background"
     >
       <Logo />
-      <div className="flex">
-        <div className="flex flex-col">
-          <Link href="#">
-            <TextAtom type={TextAtomEnum.enum_h3}>Избранное</TextAtom>
-          </Link>
-          <Link href="#">
-            <TextAtom type={TextAtomEnum.enum_h3}>Корзина</TextAtom>
-          </Link>
-          <Link href="#">
-            <TextAtom type={TextAtomEnum.enum_h3}>Контакты</TextAtom>
-          </Link>
-        </div>
+      <div className="flex flex-col gap-[10px]">
+        <Link href="#" className="hover:text-accent-orange">
+          <TextAtom type={TextAtomEnum.enum_h3}>Избранное</TextAtom>
+        </Link>
+        <Link href="/cart" className="hover:text-accent-orange">
+          <TextAtom type={TextAtomEnum.enum_h3}>Корзина</TextAtom>
+        </Link>
+        <Link href="#" className="hover:text-accent-orange">
+          <TextAtom type={TextAtomEnum.enum_h3}>Контакты</TextAtom>
+        </Link>
+      </div>
 
-        <div className="">
-          <Link href="#">
-            <TextAtom type={TextAtomEnum.enum_h3}>Условия сервиса</TextAtom>
-          </Link>
+      <div className="flex flex-col gap-[30px]">
+        <Link href="#" className="p-[10px]">
+          <TextAtom type={TextAtomEnum.enum_h3}>Условия сервиса</TextAtom>
+        </Link>
 
-          <div className="flex items-center gap-[15px]">
-            <ImageAtom
-              type={ImageAtomEnum.enum_defaultSvg}
-              icon={<WorldIcon />}
-              className="w-[16.67px] h-[16.67px]"
-            />
-            <TextAtom type={TextAtomEnum.enum_h3}>Каз</TextAtom>
-            <TextAtom type={TextAtomEnum.enum_h3}>Рус</TextAtom>
-            <TextAtom type={TextAtomEnum.enum_h3}>Eng</TextAtom>
-          </div>
+        <div className="flex items-center gap-[15px] p-[10px]">
+          <ImageAtom
+            type={ImageAtomEnum.enum_defaultSvg}
+            icon={<WorldIcon />}
+            className="w-[16.67px] h-[16.67px]"
+          />
+          <TextAtom type={TextAtomEnum.enum_h3}>Каз</TextAtom>
+          <TextAtom type={TextAtomEnum.enum_h3}>Рус</TextAtom>
+          <TextAtom type={TextAtomEnum.enum_h3}>Eng</TextAtom>
         </div>
       </div>
 

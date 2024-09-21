@@ -15,7 +15,7 @@ const ImageAtom: React.FC<ImageAtomType> = (props) => {
     case ImageAtomEnum.enum_defaultSvg: {
       return (
         <div
-          className={`${className} flex justify-center align-center`}
+          className={`${className} flex justify-center items-center`}
           onClick={(e) => {
             e.stopPropagation();
             onClick?.(e);

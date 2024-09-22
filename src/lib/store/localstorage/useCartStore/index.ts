@@ -7,35 +7,48 @@ const useCartStore = create<CartStore & ActionsCartStore>()(
     (set) => ({
       items: [],
       total: 0,
+
+      recalculateTotal: (items) => {
+        const total = items
+          .filter((item) => item.isSelected)
+          .reduce((acc, item) => acc + item.sum, 0);
+        return total;
+      },
+
       addItem: (newItem) =>
         set((state) => {
           const existItemIndex = state.items.findIndex(
             (item) => item.id === newItem.id
           );
+          let updatedItems;
+
           if (existItemIndex !== -1) {
-            const updatedItems = [...state.items];
+            updatedItems = [...state.items];
             updatedItems[existItemIndex].quantity += newItem.quantity;
             updatedItems[existItemIndex].sum +=
               newItem.price * newItem.quantity;
-            return {
-              items: updatedItems,
-            };
           } else {
             const sum = newItem.price * newItem.quantity;
-            return {
-              items: [...state.items, { ...newItem, sum }],
-            };
+            updatedItems = [...state.items, { ...newItem, sum }];
           }
-        }),
-      removeItem: (id) =>
-        set((state) => {
-          const itemToRemove = state.items.find((item) => item.id === id);
-          if (!itemToRemove) return state;
-          const updatedItems = state.items.filter((item) => item.id !== id);
+
+          const total = state.recalculateTotal(updatedItems);
           return {
             items: updatedItems,
+            total: total,
           };
         }),
+
+      removeItem: (id) =>
+        set((state) => {
+          const updatedItems = state.items.filter((item) => item.id !== id);
+          const total = state.recalculateTotal(updatedItems);
+          return {
+            items: updatedItems,
+            total: total,
+          };
+        }),
+
       updateItemQuantity: (id, quantity) =>
         set((state) => {
           const updatedItems = state.items.map((item) =>
@@ -43,19 +56,18 @@ const useCartStore = create<CartStore & ActionsCartStore>()(
               ? { ...item, quantity, sum: item.price * quantity }
               : item
           );
+          const total = state.recalculateTotal(updatedItems);
           return {
             items: updatedItems,
-          };
-        }),
-      clearCart: () =>
-        set((state) => {
-          const updatedItems = state.items.filter((item) => !item.isSelected);
-          const total = updatedItems.reduce((acc, item) => acc + item.sum, 0);
-          return {
-            items: updatedItems.map((item) => ({ ...item, isSelected: false })),
             total: total,
           };
         }),
+
+      clearCart: () =>
+        set(() => ({
+          items: [],
+          total: 0,
+        })),
 
       increaseQuantity: (id) =>
         set((state) => {
@@ -68,10 +80,13 @@ const useCartStore = create<CartStore & ActionsCartStore>()(
                 }
               : item
           );
+          const total = state.recalculateTotal(updatedItems);
           return {
             items: updatedItems,
+            total: total,
           };
         }),
+
       decreaseQuantity: (id) =>
         set((state) => {
           const updatedItems = state.items.map((item) =>
@@ -83,37 +98,38 @@ const useCartStore = create<CartStore & ActionsCartStore>()(
                 }
               : item
           );
-          return {
-            items: updatedItems,
-          };
-        }),
-      selectedItem: (id) => {
-        set((state) => {
-          const updatedItems = state.items.map((item) =>
-            item.id === id ? { ...item, isSelected: !item.isSelected } : item
-          );
-          const total = updatedItems
-            .filter((item) => item.isSelected)
-            .reduce((acc, item) => acc + item.sum, 0);
-
+          const total = state.recalculateTotal(updatedItems);
           return {
             items: updatedItems,
             total: total,
           };
-        });
-      },
+        }),
+
+      selectedItem: (id) =>
+        set((state) => {
+          const updatedItems = state.items.map((item) =>
+            item.id === id ? { ...item, isSelected: !item.isSelected } : item
+          );
+          const total = state.recalculateTotal(updatedItems);
+          return {
+            items: updatedItems,
+            total: total,
+          };
+        }),
+
       selectAllItems: () =>
         set((state) => {
           const updatedItems = state.items.map((item) => ({
             ...item,
             isSelected: true,
           }));
-          const total = updatedItems.reduce((acc, item) => acc + item.sum, 0);
+          const total = state.recalculateTotal(updatedItems);
           return {
             items: updatedItems,
             total: total,
           };
         }),
+
       deselectAllItems: () =>
         set((state) => {
           const updatedItems = state.items.map((item) => ({
@@ -125,6 +141,7 @@ const useCartStore = create<CartStore & ActionsCartStore>()(
             total: 0,
           };
         }),
+
       createOrder: () => {
         const selectedItems = useCartStore
           .getState()

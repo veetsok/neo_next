@@ -21,13 +21,8 @@ const SelectionPanel: React.FC<SelectionPanelProps> = () => {
   }, [items, selectAllItems, deselectAllItems]);
 
   const handleDeleteSelected = useCallback(() => {
-    const selectedIds = items
-      .filter((item) => item.isSelected)
-      .map((item) => item.id);
-    selectedIds.forEach(() => {
-      clearCart();
-    });
-  }, [items, clearCart]);
+    clearCart();
+  }, [clearCart]);
 
   const selectAllChecked = useMemo(() => {
     return items.length > 0 && items.every((item) => item.isSelected);

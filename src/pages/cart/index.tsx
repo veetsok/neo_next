@@ -28,13 +28,11 @@ const Cart: React.FC<CartProps> = () => {
       {items.length > 0 ? (
         <>
           <SelectionPanelCell />
-          <div className="flex justify-between">
-            <div className="flex flex-col gap-5 w-full max-h-[694px] max-w-[700px] scrollbar">
-              {items?.map((e, index: number) => (
-                <ProductCart key={index} {...e} />
-              ))}
-            </div>
-            <div className="flex flex-col bg-white-background rounded-[30px] w-full max-w-[350px] shadow-card-box font-semibold max-h-[114px]">
+          <div className="flex flex-col md:flex-row justify-between gap-8">
+            <div
+              className="flex flex-col bg-white-background rounded-[30px] w-full xl:max-w-[350px] shadow-card-box font-semibold max-h-[114px] 
+              md:order-2 md:w-full lg:w-1/2 md:max-w-none"
+            >
               <div className="flex justify-between pt-[21px] pb-[15px] px-[17px] uppercase">
                 <TextAtom type={TextAtomEnum.enum_h4}>ИТОГО</TextAtom>
                 <TextAtom type={TextAtomEnum.enum_h4}>₽ {total}</TextAtom>
@@ -48,6 +46,14 @@ const Cart: React.FC<CartProps> = () => {
                   Перейти к оформлению
                 </TextAtom>
               </ButtonAtom>
+            </div>
+            <div
+              className="flex flex-col gap-5 w-full max-h-[694px] max-w-[700px] scrollbar 
+            order-2 md:order-1"
+            >
+              {items?.map((e, index: number) => (
+                <ProductCart key={index} {...e} />
+              ))}
             </div>
           </div>
         </>

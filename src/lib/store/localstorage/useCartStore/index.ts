@@ -143,10 +143,15 @@ const useCartStore = create<CartStore & ActionsCartStore>()(
         }),
 
       createOrder: (): CreateOrderResult => {
-        const selectedItems = useCartStore
-          .getState()
-          .items.filter((item) => item.isSelected);
-        const total = selectedItems.reduce((acc, item) => acc + item.sum, 0); // Или возьмите общий total из состояния
+        const state = useCartStore.getState();
+        const selectedItems = state.items.filter((item) => item.isSelected);
+        const total = selectedItems.reduce((acc, item) => acc + item.sum, 0);
+
+        const updatedItems = state.items.filter((item) => !item.isSelected);
+        set({
+          items: updatedItems,
+          total: state.recalculateTotal(updatedItems),
+        });
 
         return { selectedItems, total };
       },

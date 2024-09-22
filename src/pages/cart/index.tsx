@@ -90,7 +90,7 @@ const Cart: React.FC<CartProps> = () => {
           <div className="flex flex-col gap-10 justify-center items-center h-[95vh]">
             <TextAtom
               className="font-bold leading-[20px] text-tiffany"
-              type={TextAtomEnum.enum_h3}
+              type={TextAtomEnum.enum_h1}
             >
               Корзина пока пуста!
             </TextAtom>

@@ -28,8 +28,8 @@ const Cart: React.FC<CartProps> = () => {
       {items.length > 0 ? (
         <>
           <SelectionPanelCell />
-          <div className="flex">
-            <div className="flex flex-col gap-5 w-full max-h-[694px] scrollbar">
+          <div className="flex justify-between">
+            <div className="flex flex-col gap-5 w-full max-h-[694px] max-w-[700px] scrollbar">
               {items?.map((e, index: number) => (
                 <ProductCart key={index} {...e} />
               ))}

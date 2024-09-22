@@ -40,6 +40,7 @@ const SelectionPanel: React.FC<SelectionPanelProps> = () => {
           type={CheckboxAtomEnum.CHECKBOX}
           className="my-auto"
           checked={selectAllChecked}
+          onChange={handleSelectAll}
         />
         <TextAtom
           type={TextAtomEnum.enum_h4}

@@ -21,6 +21,11 @@ export interface CartStore {
   total: number;
 }
 
+export interface CreateOrderResult {
+  selectedItems: CartStoreItems[];
+  total: number;
+}
+
 export interface ActionsCartStore {
   addItem: (newItem: CartStoreItems) => void;
   removeItem: (id: number) => void;
@@ -31,6 +36,6 @@ export interface ActionsCartStore {
   selectedItem: (id: number) => void;
   selectAllItems: () => void;
   deselectAllItems: () => void;
-  createOrder: () => void;
   recalculateTotal: (items: CartStoreItems[]) => number;
+  createOrder: () => CreateOrderResult;
 }

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import ProductCart from "@/components/items/product-cart";
 import ButtonAtom from "@/components/ui/Atoms/Button.Atom";
 import ButtonAtomEnum from "@/components/ui/Atoms/Button.Atom/enum";
@@ -10,24 +10,30 @@ import Link from "next/link";
 import { useModal } from "@/lib/hooks/useModal";
 import ModalBlock from "@/components/modal";
 import OrderModal from "@/components/modal/order-modal";
+import { CartStoreItems } from "@/lib/types";
 
 interface CartProps {}
 
 const Cart: React.FC<CartProps> = () => {
   const { items, total, createOrder } = useCartStore();
+  const [orderData, setOrderData] = useState<{
+    selectedItems: CartStoreItems[];
+    total: number;
+  }>({ selectedItems: [], total: 0 });
 
   const { open, openModal, closeModal } = useModal();
 
   const handleCreateOrder = useCallback(() => {
-    createOrder();
+    const { selectedItems, total } = createOrder();
+    setOrderData({ selectedItems, total });
     openModal();
-  }, [createOrder]);
+  }, [createOrder, openModal]);
 
   return (
     <>
       {open && (
         <ModalBlock onClose={closeModal}>
-          <OrderModal />
+          <OrderModal selectedItems={orderData.selectedItems} total={total} />
         </ModalBlock>
       )}
       <div className="flex flex-col gap-[13px]">

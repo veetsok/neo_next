@@ -1,31 +1,30 @@
 import React from "react";
 import TextAtom from "../ui/Atoms/Text.Atom";
 import TextAtomEnum from "../ui/Atoms/Text.Atom/enum";
-import { CartStore, CartStoreItems } from "@/lib/types";
+import { CreateOrderResult } from "@/lib/types";
 
-interface OrderModalProps extends Partial<CartStore & CartStoreItems> {}
+interface OrderModalProps extends Partial<CreateOrderResult> {}
 
-const OrderModal: React.FC<OrderModalProps> = (props) => {
-  const { title, quantity, sum, total } = props;
-
+const OrderModal: React.FC<OrderModalProps> = ({ selectedItems, total }) => {
   return (
-    <>
-      <TextAtom type={TextAtomEnum.enum_h2} className="text-accent-blue">
+    <div className="flex flex-col">
+      <TextAtom type={TextAtomEnum.enum_h1} className="text-accent-blue">
         Спасибо за заказ
       </TextAtom>
+      {selectedItems?.map((item) => (
+        <div key={item.id} className="flex justify-between">
+          <TextAtom type={TextAtomEnum.enum_h3} className="text-accent-blue">
+            {item.title} (x{item.quantity})
+          </TextAtom>
+          <TextAtom type={TextAtomEnum.enum_h3} className="text-accent-blue">
+            {item.sum} ₽
+          </TextAtom>
+        </div>
+      ))}
       <TextAtom type={TextAtomEnum.enum_h3} className="text-accent-blue">
-        {title}
+        Общая сумма: {total} ₽
       </TextAtom>
-      <TextAtom type={TextAtomEnum.enum_h3} className="text-accent-blue">
-        {quantity}
-      </TextAtom>
-      <TextAtom type={TextAtomEnum.enum_h3} className="text-accent-blue">
-        {sum}
-      </TextAtom>
-      <TextAtom type={TextAtomEnum.enum_h3} className="text-accent-blue">
-        {total}
-      </TextAtom>
-    </>
+    </div>
   );
 };
 

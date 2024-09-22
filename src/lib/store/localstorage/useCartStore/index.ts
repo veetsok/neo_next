@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { ActionsCartStore, CartStore } from "@/lib/types";
+import { ActionsCartStore, CartStore, CreateOrderResult } from "@/lib/types";
 
 const useCartStore = create<CartStore & ActionsCartStore>()(
   persist(
@@ -142,13 +142,13 @@ const useCartStore = create<CartStore & ActionsCartStore>()(
           };
         }),
 
-      createOrder: () => {
+      createOrder: (): CreateOrderResult => {
         const selectedItems = useCartStore
           .getState()
           .items.filter((item) => item.isSelected);
-        const total = useCartStore.getState().total;
-        console.log("Creating order with selected items:", selectedItems);
-        console.log("Total:", total);
+        const total = selectedItems.reduce((acc, item) => acc + item.sum, 0); // Или возьмите общий total из состояния
+
+        return { selectedItems, total };
       },
     }),
     {

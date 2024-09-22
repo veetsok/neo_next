@@ -23,7 +23,7 @@ export default function Home() {
     }, [] as JSX.Element[]);
 
     return (
-      <div className="flex flex-col gap-[23.89px] mt-7">
+      <div className="flex flex-col gap-[23.89px]">
         <TextAtom
           type={TextAtomEnum.enum_h2}
           className="text-accent-gray font-semibold"
@@ -38,7 +38,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col gap-[28.35px]">
+    <div className="flex flex-col gap-[28.35px] mt-7">
       {renderProductSection("Наушники", 1)}
       {renderProductSection("Беспроводные наушники", 2)}
     </div>

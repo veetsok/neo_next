@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useLayoutEffect, useState } from "react";
 import ProductCart from "@/components/items/product-cart";
 import ButtonAtom from "@/components/ui/Atoms/Button.Atom";
 import ButtonAtomEnum from "@/components/ui/Atoms/Button.Atom/enum";
@@ -15,7 +15,7 @@ import { CartStoreItems } from "@/lib/types";
 interface CartProps {}
 
 const Cart: React.FC<CartProps> = () => {
-  const { items, total, createOrder } = useCartStore();
+  const { items, total, createOrder, initializeCart } = useCartStore();
   const [orderData, setOrderData] = useState<{
     selectedItems: CartStoreItems[];
     total: number;
@@ -30,6 +30,10 @@ const Cart: React.FC<CartProps> = () => {
   }, [createOrder, openModal]);
 
   const hasSelectedItems = items.some((item) => item.isSelected);
+
+  useLayoutEffect(() => {
+    initializeCart();
+  }, [initializeCart]);
 
   return (
     <>

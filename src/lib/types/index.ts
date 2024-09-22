@@ -38,4 +38,5 @@ export interface ActionsCartStore {
   deselectAllItems: () => void;
   recalculateTotal: (items: CartStoreItems[]) => number;
   createOrder: () => CreateOrderResult;
+  initializeCart: () => void;
 }

@@ -4,7 +4,7 @@ import { ActionsCartStore, CartStore, CreateOrderResult } from "@/lib/types";
 
 const useCartStore = create<CartStore & ActionsCartStore>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       items: [],
       total: 0,
 
@@ -142,8 +142,18 @@ const useCartStore = create<CartStore & ActionsCartStore>()(
           };
         }),
 
+      initializeCart: () => {
+        const state = get();
+        if (
+          state.items.length > 0 &&
+          !state.items.every((item) => item.isSelected)
+        ) {
+          state.selectAllItems();
+        }
+      },
+
       createOrder: (): CreateOrderResult => {
-        const state = useCartStore.getState();
+        const state = get();
         const selectedItems = state.items.filter((item) => item.isSelected);
         const total = selectedItems.reduce((acc, item) => acc + item.sum, 0);
 

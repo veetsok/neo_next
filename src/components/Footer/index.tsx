@@ -15,8 +15,10 @@ interface FooterProps {}
 const Footer: React.FC<FooterProps> = () => {
   return (
     <div
-      className="mt-5 p-[29px] flex justify-between items-baseline
-    rounded-[30px_30px_0_0] bg-white-background"
+      className="mt-5 p-[29px] flex flex-col items-center justify-between rounded-[30px_30px_0_0] bg-white-background
+      md:flex-col md:items-center
+      lg:flex-row lg:items-baseline
+      xl:flex-row xl:items-baseline"
     >
       <Logo />
       <div className="flex flex-col gap-[10px]">

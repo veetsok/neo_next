@@ -67,14 +67,14 @@ const ProductCart: React.FC<ProductCartProps> = (props) => {
           )}
           <div className="flex items-center gap-[25px]">
             <ImageAtom
-              className="fill-white bg-accent-orange w-[30px] h-[30px] rounded-full cursor-pointer items-center justify-center"
+              className="fill-white bg-light-orange w-[30px] h-[30px] rounded-full cursor-pointer items-center justify-center"
               type={ImageAtomEnum.enum_defaultSvg}
               icon={<DecreaseIcon />}
               onClick={handleDecreaseQuantity}
             />
             <TextAtom type={TextAtomEnum.enum_h3}>{quantity}</TextAtom>
             <ImageAtom
-              className="fill-white bg-accent-orange w-[30px] h-[30px] rounded-full cursor-pointer items-center justify-center"
+              className="fill-white bg-light-orange w-[30px] h-[30px] rounded-full cursor-pointer items-center justify-center"
               type={ImageAtomEnum.enum_defaultSvg}
               icon={<IncreaseIcon />}
               onClick={handleIncreaseQuantity}
@@ -82,7 +82,9 @@ const ProductCart: React.FC<ProductCartProps> = (props) => {
           </div>
         </div>
         <div className="flex flex-col gap-3">
-          <TextAtom type={TextAtomEnum.enum_h3}>{title}</TextAtom>
+          <TextAtom type={TextAtomEnum.enum_h3} className="font-medium">
+            {title}
+          </TextAtom>
           <TextAtom
             type={TextAtomEnum.enum_h4}
             className="text-light-gray font-semibold"

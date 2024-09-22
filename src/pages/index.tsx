@@ -23,14 +23,14 @@ export default function Home() {
     }, [] as JSX.Element[]);
 
     return (
-      <div className="flex flex-col gap-[23.89px]">
+      <div className="flex flex-col gap-[23.89px] mt-7">
         <TextAtom
           type={TextAtomEnum.enum_h2}
           className="text-accent-gray font-semibold"
         >
           {title}
         </TextAtom>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
           {products}
         </div>
       </div>

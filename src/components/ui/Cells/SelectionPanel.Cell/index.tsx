@@ -48,17 +48,21 @@ const SelectionPanel: React.FC<SelectionPanelProps> = () => {
           Выбрать всё
         </TextAtom>
       </div>
-      <ButtonAtom
-        onClick={handleDeleteSelected}
-        type={ButtonAtomEnum.enum_defaultButton}
-      >
-        <TextAtom
-          type={TextAtomEnum.enum_h4}
-          className="font-semibold text-textColor"
+      {selectAllChecked ? (
+        <ButtonAtom
+          onClick={handleDeleteSelected}
+          type={ButtonAtomEnum.enum_defaultButton}
         >
-          Удалить всё
-        </TextAtom>
-      </ButtonAtom>
+          <TextAtom
+            type={TextAtomEnum.enum_h4}
+            className="font-semibold text-accent-blue"
+          >
+            Удалить всё
+          </TextAtom>
+        </ButtonAtom>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

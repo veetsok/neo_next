@@ -14,6 +14,7 @@ const colorsTW = {
   "telegram-icon": "rgb(var(--telegram-icon) / <alpha-value>)",
 
   "light-gray": "rgb(var(--light-gray) / <alpha-value>)",
+  "light-orange": "rgb(var(--light-orange) / <alpha-value>)",
 };
 
 export default colorsTW;

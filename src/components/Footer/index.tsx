@@ -40,9 +40,8 @@ const Footer: React.FC<FooterProps> = () => {
           <ImageAtom
             type={ImageAtomEnum.enum_defaultSvg}
             icon={<WorldIcon />}
-            className="w-[16.67px] h-[16.67px]"
+            className="w-5 h-5"
           />
-          <TextAtom type={TextAtomEnum.enum_h3}>Каз</TextAtom>
           <TextAtom type={TextAtomEnum.enum_h3}>Рус</TextAtom>
           <TextAtom type={TextAtomEnum.enum_h3}>Eng</TextAtom>
         </div>

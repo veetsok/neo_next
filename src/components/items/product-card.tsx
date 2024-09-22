@@ -51,13 +51,15 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
         />
       )}
       <div className="flex justify-between h-[45px]">
-        <TextAtom type={TextAtomEnum.enum_h4}>{title}</TextAtom>
+        <TextAtom type={TextAtomEnum.enum_h4} className="text-accent-blue">
+          {title}
+        </TextAtom>
         <div className="flex flex-col text-accent-orange">
           <TextAtom type={TextAtomEnum.enum_h4}>{price} ₽</TextAtom>
           {old && (
             <TextAtom
               type={TextAtomEnum.enum_h4}
-              className="line-through font-light"
+              className="line-through font-light text-light-orange"
             >
               {old} ₽
             </TextAtom>
@@ -65,13 +67,15 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
         </div>
       </div>
       <div className="flex justify-between">
-        <div className="flex items-center gap-[10px]">
+        <div className="flex items-start gap-[10px]">
           <ImageAtom
             type={ImageAtomEnum.enum_defaultSvg}
             icon={<StarIcon />}
-            className="fill-accent-orange w-[23.3px] h-[21.93px]"
+            className="fill-light-orange w-[23.3px] h-[21.93px]"
           />
-          <TextAtom type={TextAtomEnum.enum_h4}>{rate}</TextAtom>
+          <TextAtom type={TextAtomEnum.enum_h4} className="text-light-gray">
+            {rate}
+          </TextAtom>
         </div>
         <ButtonAtom
           type={ButtonAtomEnum.enum_defaultButton}

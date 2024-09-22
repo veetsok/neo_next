@@ -19,7 +19,12 @@ const Cart: React.FC<CartProps> = () => {
 
   return (
     <div className="flex flex-col gap-[13px]">
-      <TextAtom type={TextAtomEnum.enum_h2}>Корзина</TextAtom>
+      <TextAtom
+        type={TextAtomEnum.enum_h2}
+        className="font-semibold text-accent-blue"
+      >
+        Корзина
+      </TextAtom>
       {items.length > 0 ? (
         <>
           <SelectionPanelCell />

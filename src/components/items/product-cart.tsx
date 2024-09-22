@@ -82,7 +82,7 @@ const ProductCart: React.FC<ProductCartProps> = (props) => {
                 className={`fill-white`}
                 type={ImageAtomEnum.enum_defaultSvg}
                 icon={<DecreaseIcon />}
-                onClick={quantity === 1 ? undefined : handleDecreaseQuantity} // Блокируем нажатие, если quantity === 1
+                onClick={quantity === 1 ? undefined : handleDecreaseQuantity}
               />
             </ButtonAtom>
 

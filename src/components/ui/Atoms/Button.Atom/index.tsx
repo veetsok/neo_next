@@ -25,9 +25,7 @@ const ButtonAtom: React.FC<ButtonAtomProps> = (props) => {
       return (
         <button
           onClick={(e) => handleClick(e, onClick)}
-          className={`${className} ${
-            disabled ? "opacity-50 cursor-not-allowed" : ""
-          } ${buttonStyles}`}
+          className={`${className}  ${buttonStyles}`}
           disabled={disabled}
         >
           {children}

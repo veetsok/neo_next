@@ -29,6 +29,8 @@ const Cart: React.FC<CartProps> = () => {
     openModal();
   }, [createOrder, openModal]);
 
+  const hasSelectedItems = items.some((item) => item.isSelected);
+
   return (
     <>
       {open && (
@@ -58,7 +60,12 @@ const Cart: React.FC<CartProps> = () => {
                 <ButtonAtom
                   type={ButtonAtomEnum.enum_defaultButton}
                   onClick={handleCreateOrder}
-                  className="py-5 px-[13px] bg-accent-black text-white-background rounded-[20px]"
+                  className={`py-5 px-[13px] rounded-[20px] ${
+                    hasSelectedItems
+                      ? "bg-accent-black text-white-background"
+                      : "bg-accent-gray !cursor-not-allowed text-white-background/50"
+                  }`}
+                  disabled={!hasSelectedItems}
                 >
                   <TextAtom type={TextAtomEnum.enum_h3}>
                     Перейти к оформлению
@@ -69,7 +76,7 @@ const Cart: React.FC<CartProps> = () => {
                 className="flex flex-col gap-5 w-full max-h-[694px] max-w-[700px] scrollbar 
             order-2 md:order-1"
               >
-                {items?.map((e, index: number) => (
+                {items.map((e, index: number) => (
                   <ProductCart key={index} {...e} />
                 ))}
               </div>

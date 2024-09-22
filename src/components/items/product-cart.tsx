@@ -72,7 +72,7 @@ const ProductCart: React.FC<ProductCartProps> = (props) => {
               type={ButtonAtomEnum.enum_defaultButton}
               className={`${
                 quantity === 1
-                  ? "bg-accent-gray cursor-not-allowed"
+                  ? "bg-accent-gray !cursor-not-allowed opacity-50"
                   : "bg-light-orange"
               } w-[30px] h-[30px] rounded-full items-center justify-center`}
               onClick={handleDecreaseQuantity}

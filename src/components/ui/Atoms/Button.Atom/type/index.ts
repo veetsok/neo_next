@@ -7,4 +7,5 @@ export interface ButtonAtomProps
   type: ButtonAtomEnum;
   onMouseOver?: MouseEventHandler;
   onMouseLeave?: MouseEventHandler;
+  disabled?: boolean;
 }

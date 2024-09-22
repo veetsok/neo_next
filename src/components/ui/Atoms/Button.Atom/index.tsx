@@ -4,11 +4,8 @@ import { buttonStyles } from "./style";
 import { ButtonAtomProps } from "./type";
 
 const ButtonAtom: React.FC<ButtonAtomProps> = (props) => {
-  const { children, className, onClick, type } = props;
+  const { children, className, onClick, type, disabled } = props;
 
-  // if (isLoading) {
-  //   return <SkeletonAtom />;
-  // }
   const handleClick = useCallback(
     (
       e: MouseEvent<HTMLButtonElement>,
@@ -16,9 +13,11 @@ const ButtonAtom: React.FC<ButtonAtomProps> = (props) => {
     ) => {
       e.stopPropagation();
       e.preventDefault();
-      onClick?.(e);
+      if (!disabled) {
+        onClick?.(e);
+      }
     },
-    []
+    [disabled]
   );
 
   switch (type) {
@@ -26,7 +25,10 @@ const ButtonAtom: React.FC<ButtonAtomProps> = (props) => {
       return (
         <button
           onClick={(e) => handleClick(e, onClick)}
-          className={`${className} ${buttonStyles}`}
+          className={`${className} ${
+            disabled ? "opacity-50 cursor-not-allowed" : ""
+          } ${buttonStyles}`}
+          disabled={disabled}
         >
           {children}
         </button>

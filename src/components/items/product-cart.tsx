@@ -10,6 +10,8 @@ import useCartStore from "@/lib/store/localstorage/useCartStore";
 import IncreaseIcon from "@/assets/icons/increase.svg?react";
 import DecreaseIcon from "@/assets/icons/decrease.svg?react";
 import CheckBoxAtom, { CheckboxAtomEnum } from "../ui/Atoms/CheckBox.Atom";
+import ButtonAtom from "../ui/Atoms/Button.Atom";
+import ButtonAtomEnum from "../ui/Atoms/Button.Atom/enum";
 
 interface ProductCartProps extends Partial<CartStoreItems> {}
 
@@ -66,19 +68,37 @@ const ProductCart: React.FC<ProductCartProps> = (props) => {
             />
           )}
           <div className="flex items-center gap-[25px]">
-            <ImageAtom
-              className="fill-white bg-light-orange w-[30px] h-[30px] rounded-full cursor-pointer items-center justify-center"
-              type={ImageAtomEnum.enum_defaultSvg}
-              icon={<DecreaseIcon />}
+            <ButtonAtom
+              type={ButtonAtomEnum.enum_defaultButton}
+              className={`${
+                quantity === 1
+                  ? "bg-accent-gray cursor-not-allowed"
+                  : "bg-light-orange"
+              } w-[30px] h-[30px] rounded-full items-center justify-center`}
               onClick={handleDecreaseQuantity}
-            />
+              disabled={quantity === 1}
+            >
+              <ImageAtom
+                className={`fill-white`}
+                type={ImageAtomEnum.enum_defaultSvg}
+                icon={<DecreaseIcon />}
+                onClick={quantity === 1 ? undefined : handleDecreaseQuantity} // Блокируем нажатие, если quantity === 1
+              />
+            </ButtonAtom>
+
             <TextAtom type={TextAtomEnum.enum_h3}>{quantity}</TextAtom>
-            <ImageAtom
-              className="fill-white bg-light-orange w-[30px] h-[30px] rounded-full cursor-pointer items-center justify-center"
-              type={ImageAtomEnum.enum_defaultSvg}
-              icon={<IncreaseIcon />}
+            <ButtonAtom
+              type={ButtonAtomEnum.enum_defaultButton}
+              className="bg-light-orange w-[30px] h-[30px] rounded-full cursor-pointer items-center justify-center"
               onClick={handleIncreaseQuantity}
-            />
+            >
+              <ImageAtom
+                className="fill-white"
+                type={ImageAtomEnum.enum_defaultSvg}
+                icon={<IncreaseIcon />}
+                onClick={handleIncreaseQuantity}
+              />
+            </ButtonAtom>
           </div>
         </div>
         <div className="flex flex-col gap-3">

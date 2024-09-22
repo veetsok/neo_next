@@ -49,7 +49,7 @@ const SelectionPanel: React.FC<SelectionPanelProps> = () => {
           Выбрать всё
         </TextAtom>
       </div>
-      {selectAllChecked ? (
+      {selectAllChecked && (
         <ButtonAtom
           onClick={handleDeleteSelected}
           type={ButtonAtomEnum.enum_defaultButton}
@@ -61,8 +61,6 @@ const SelectionPanel: React.FC<SelectionPanelProps> = () => {
             Удалить всё
           </TextAtom>
         </ButtonAtom>
-      ) : (
-        ""
       )}
     </div>
   );

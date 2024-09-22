@@ -28,6 +28,27 @@
   }
 }
 
+.scrollbar {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #0a0909;
+  width: 8px;
+  border-radius: 10px;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+  /* height: 20px; */
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: rgba(123, 119, 119, 0.12);
+  border-radius: 10px;
+}
+
 html,
 body {
   height: 100%;
@@ -37,7 +58,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: rgb(var(--main-background));
-  scrollbar-color: #3e4144 #16181c;
 }
 
 input {
